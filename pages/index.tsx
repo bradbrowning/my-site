@@ -1,11 +1,15 @@
 import React from 'react'
 import { GetStaticProps } from 'next'
 import Layout from '../components/Layout'
-import Project, { ProjectProps } from '../components/Post'
+import Project, { ProjectProps } from '../components/Project'
 import prisma from '../lib/prisma'
 
 export const getStaticProps: GetStaticProps = async () => {
-  const projects = await prisma.project.findMany()
+  const projects = await prisma.project.findMany({
+    include: {
+      resources: true,
+    },
+  })
   const allProjects = JSON.parse(JSON.stringify(projects))
   return {
     props: { projects: allProjects },
