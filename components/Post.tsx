@@ -1,25 +1,18 @@
-import React from "react";
-import Router from "next/router";
-import ReactMarkdown from "react-markdown";
+import React from 'react'
+import Router from 'next/router'
+import ReactMarkdown from 'react-markdown'
 
-export type PostProps = {
-  id: string;
-  title: string;
-  author: {
-    name: string;
-    email: string;
-  } | null;
-  content: string;
-  published: boolean;
-};
+export type ProjectProps = {
+  id: string
+  name: string
+  description: string
+}
 
-const Post: React.FC<{ post: PostProps }> = ({ post }) => {
-  const authorName = post.author ? post.author.name : "Unknown author";
+const Project: React.FC<{ project: ProjectProps }> = ({ project }) => {
   return (
-    <div onClick={() => Router.push("/p/[id]", `/p/${post.id}`)}>
-      <h2>{post.title}</h2>
-      <small>By {authorName}</small>
-      <ReactMarkdown children={post.content} />
+    <div onClick={() => Router.push('/p/[id]', `/p/${project.id}`)}>
+      <h2>{project.name}</h2>
+      <ReactMarkdown children={project.description} />
       <style jsx>{`
         div {
           color: inherit;
@@ -27,7 +20,7 @@ const Post: React.FC<{ post: PostProps }> = ({ post }) => {
         }
       `}</style>
     </div>
-  );
-};
+  )
+}
 
-export default Post;
+export default Project
