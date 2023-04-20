@@ -1,17 +1,16 @@
-import React from "react";
-import Link from "next/link";
-import { useRouter } from "next/router";
+import React from 'react'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 const Header: React.FC = () => {
-  const router = useRouter();
-  const isActive: (pathname: string) => boolean = (pathname) =>
-    router.pathname === pathname;
+  const router = useRouter()
+  const isActive: (pathname: string) => boolean = (pathname) => router.pathname === pathname
 
   let left = (
     <div className="left">
       <Link href="/">
-        <a className="bold" data-active={isActive("/")}>
-          Feed
+        <a className="bold" data-active={isActive('/')}>
+          Brad Browning - next.js // prisma // vercel
         </a>
       </Link>
       <style jsx>{`
@@ -25,7 +24,7 @@ const Header: React.FC = () => {
           display: inline-block;
         }
 
-        .left a[data-active="true"] {
+        .left a[data-active='true'] {
           color: gray;
         }
 
@@ -34,9 +33,9 @@ const Header: React.FC = () => {
         }
       `}</style>
     </div>
-  );
+  )
 
-  let right = null;
+  let right = null
 
   return (
     <nav>
@@ -50,7 +49,7 @@ const Header: React.FC = () => {
         }
       `}</style>
     </nav>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header
