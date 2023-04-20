@@ -10,7 +10,7 @@ export type ProjectProps = {
 
 const Project: React.FC<{ project: ProjectProps }> = ({ project }) => {
   return (
-    <div onClick={() => Router.push('/p/[id]', `/p/${project.id}`)}>
+    <div>
       <h2>{project.name}</h2>
       <ReactMarkdown children={project.description} />
       <style jsx>{`
